@@ -19,10 +19,13 @@ const reverseZigZagString = (str) => {
 
   let small = true;
   for (let i = str.length-1; i >= 0; i--) {
+    // to account for spaces!
     if (str[i] == ' ') {
       res += str[i];
       continue;
     }
+    // upper or lower based on toggle
+    // switch toggle
     (small) ? res += str[i].toLowerCase() : res += str[i].toUpperCase();
     small = !small;
     // if (small) {
