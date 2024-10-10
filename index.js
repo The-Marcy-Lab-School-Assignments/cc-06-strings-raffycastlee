@@ -19,18 +19,24 @@ const reverseZigZagString = (str) => {
 
   let small = true;
   for (let i = str.length-1; i >= 0; i--) {
-    if (small) {
-      res += str[i].toLowerCase();
-      small = false;
-    } else {
-      res += str[i].toUpperCase();
-      small = true;
+    if (str[i] == ' ') {
+      res += str[i];
+      continue;
     }
+    (small) ? res += str[i].toLowerCase() : res += str[i].toUpperCase();
+    small = !small;
+    // if (small) {
+    //   res += str[i].toLowerCase();
+    //   small = false;
+    // } else {
+    //   res += str[i].toUpperCase();
+    //   small = true;
+    // }
   }
 
   return res;
 }
 
-// console.log(reverseZigZagString("hello")) //"oOlLeH"
-// console.log(reverseZigZagString("Fellows"))    //"sWoLlEf"
-// console.log(reverseZigZagString("Code Challenge"))  //"eGnElLaHc EdOc"
+console.log(reverseZigZagString("hello")) //"oOlLeH"
+console.log(reverseZigZagString("Fellows"))    //"sWoLlEf"
+console.log(reverseZigZagString("Code Challenge"))  //"eGnElLaHc EdOc"
