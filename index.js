@@ -15,31 +15,25 @@ const reverseString = (str) => {
 // console.log(reverseString(""))       //""
 
 const reverseZigZagString = (str) => {
+  // setup:
+  // `res` to build up
+  // `small` to alternate properly when string length is even
   res = "";
-
   let small = true;
   for (let i = str.length-1; i >= 0; i--) {
-    // to account for spaces!
+    // account for spaces
     if (str[i] == ' ') {
       res += str[i];
       continue;
     }
-    // upper or lower based on toggle
-    // switch toggle
+    // alternate chars
     (small) ? res += str[i].toLowerCase() : res += str[i].toUpperCase();
     small = !small;
-    // if (small) {
-    //   res += str[i].toLowerCase();
-    //   small = false;
-    // } else {
-    //   res += str[i].toUpperCase();
-    //   small = true;
-    // }
   }
 
   return res;
 }
 
-console.log(reverseZigZagString("hello")) //"oOlLeH"
-console.log(reverseZigZagString("Fellows"))    //"sWoLlEf"
-console.log(reverseZigZagString("Code Challenge"))  //"eGnElLaHc EdOc"
+// console.log(reverseZigZagString("hello")) //"oOlLeH"
+// console.log(reverseZigZagString("Fellows"))    //"sWoLlEf"
+// console.log(reverseZigZagString("Code Challenge"))  //"eGnElLaHc EdOc"
