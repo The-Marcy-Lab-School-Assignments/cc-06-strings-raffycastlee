@@ -14,6 +14,32 @@ const reverseString = (str) => {
 // console.log(reverseString("oo"))     //"oo"
 // console.log(reverseString(""))       //""
 
+const reverseZigZagString1 = (str) => {
+  // setup recursion
+  let splitStr = str.split(' ');
+  if (splitStr.length > 1) {
+    return reverseZigZagString1(splitStr[0]) + ' ' + reverseZigZagString1(splitStr.slice(1).join(' '));
+  }
+
+  // reverse and alternate
+  let toLower = true;
+  let res = '';
+  for (let i = str.length-1; i >= 0; i--) {
+    (toLower) ? res += str[i].toLowerCase() : res += str[i].toUpperCase();
+    toLower = !toLower;
+  }
+
+  return res;
+}
+
+
+console.log(reverseZigZagString1("hello")) //"oOlLeH"
+console.log(reverseZigZagString1("Fellows"))    //"sWoLlEf"
+console.log(reverseZigZagString1("Code Challenge"))  //"eGnElLaHc EdOc"
+console.log(reverseZigZagString1("i am"))  //"eGnElLaHc EdOc"
+console.log(reverseZigZagString1("am i"))  //"eGnElLaHc EdOc"
+console.log(reverseZigZagString1("yes yes"))  //"eGnElLaHc EdOc"
+
 const reverseZigZagString = (str) => {
   // setup:
   // `res` to build up
