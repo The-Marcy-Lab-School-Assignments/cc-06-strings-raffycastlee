@@ -14,6 +14,8 @@ const reverseString = (str) => {
 // console.log(reverseString("oo"))     //"oo"
 // console.log(reverseString(""))       //""
 
+// recursion ver.
+// inspired by catalina!
 const reverseZigZagString1 = (str) => {
   // setup recursion
   let splitStr = str.split(' ');
